@@ -38,6 +38,7 @@
 }
 .card__grados{
   font-size: 4rem;
+  color: white !important;
 }
 .card__grados-desc{
   font-size: 2rem;
@@ -81,4 +82,9 @@
 .span__term-num{
   font-size: 4rem;
   max-width: 20rem;
+  color: white !important;
+}
+.loading{
+  margin-top: 2rem;
+  color: white;
 }

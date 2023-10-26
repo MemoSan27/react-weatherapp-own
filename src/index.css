@@ -17,3 +17,6 @@ body{
   font-size: 2rem;
   background-color: #F3F3F3;
 }
+span{
+  color: yellow;
+}
