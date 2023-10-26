@@ -6,7 +6,7 @@
   margin: 10rem auto;
   border-radius: 2rem;
   padding: 5rem;
-  margin: 3rem auto;
+  
 }
 .card__info{
   display: flex;
@@ -24,6 +24,20 @@
   border-radius: 2rem;
   width: 100%;
   display: block;
+  
+}
+.form{
+  position: relative;
+}
+.btnSearch{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3.5rem;
+  
+}
+.btnSearch:hover{
+  cursor: pointer;
 }
 .card__name, .card__temp{
   color: white;
@@ -84,7 +98,7 @@
   max-width: 20rem;
   color: white !important;
 }
-.loading{
+.loading, .error{
   margin-top: 2rem;
   color: white;
 }

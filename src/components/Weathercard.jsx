@@ -8,7 +8,7 @@ const Weathercard = ( { city } ) => {
         <>
             <article>
                 <div className="card__info">
-                    <h2 className="card__name"> Clima actual en { city?.name } </h2>
+                    <h2 className="card__name"> Clima actual en <span> { city?.name }, {city?.sys?.country} </span>  </h2>
                     <img className="card__gif" src={icon} alt="Img Sun" />
                     <h2 className="card__temp"> 
                         <span className="card__grados-desc"> Temperatura actual: </span> 

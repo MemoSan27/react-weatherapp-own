@@ -32,20 +32,23 @@ const CallApi = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         setInputValue(inputCity.current.value.toLowerCase().trim())
+        inputCity.current.value = '';
     }
 
   return (
     <main>
         <div className='card'>
-            <form onSubmit={handleSubmit}>
+            <form className='form' onSubmit={handleSubmit}>
                 <input ref={inputCity} className='card__input' type='text' placeholder='Name of your city...' />
+                <i onClick={handleSubmit} className='btnSearch bx bx-search-alt-2'></i>
             </form>
+            
             {
                 isLoading
                 ? <h2 className='loading'> Loading....</h2>
                 : (
                     hasError
-                    ? (<h2 className='error'> La ciudad de <span className='error__city'> {inputValue} </span>  no existe en nuestra base de datos</h2>)
+                    ? (<h2 className='error'> ⚠️ La ciudad de <span className='error__city'> {inputValue} </span>  no existe en nuestra base de datos</h2>)
                     :(
                         <Weathercard 
                             city={city}
