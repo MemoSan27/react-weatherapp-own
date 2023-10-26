@@ -2,7 +2,7 @@
 const Weathercard = ( { city } ) => {
 
     const icon = city?.weather?.[0].icon + ".gif";
-    console.log(city);
+    
 
    return (
         <>
