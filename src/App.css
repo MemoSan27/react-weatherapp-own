@@ -6,7 +6,7 @@
   margin: 10rem auto;
   border-radius: 2rem;
   padding: 5rem;
-  
+  box-shadow: 2px 1px 30px -5px rgba(0,0,0,0.75);
 }
 .card__info{
   display: flex;
