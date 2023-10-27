@@ -14,6 +14,11 @@ html {
   background-image: url('../01b.jpg');
   background-repeat: no-repeat;
 }
+@media ( min-width: 768px ) { 
+  html{
+    background-size: cover;
+  }
+}
 body{
   font-size: 2rem;
 }
