@@ -13,8 +13,6 @@ html {
   font-size: 37.5%;  /*  1REM = 10x */
   background-image: url('../01b.jpg');
   background-repeat: no-repeat;
-  overflow: hidden;
-  background-size: cover;
 }
 body{
   font-size: 2rem;
