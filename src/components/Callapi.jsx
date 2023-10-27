@@ -113,7 +113,7 @@ const CallApi = () => {
                 ? (<Loading />)
                 : (
                     hasError
-                    ? (<h2 className='error'> ⚠️ La ciudad de <span className='error__city'> {inputValue} </span>  no existe en nuestra base de datos</h2>)
+                    ? (<h2 className='error'> ⚠️ City with name <span className='error__city'> {inputValue} </span> that you're trying to find doesn't exist in our database.</h2>)
                     :(
                         <Weathercard 
                             city={city}
