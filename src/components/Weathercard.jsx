@@ -11,7 +11,7 @@ const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
         setIsCelsius(!isCelsius);
     }
     
-    console.log(city);
+    
 
    return (
         <>
