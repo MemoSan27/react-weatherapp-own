@@ -15,7 +15,7 @@ const CallApi = () => {
     const [ tempMax, setTempMax ] = useState();
     const [ feels, setFeels ] = useState();
     const id = 'f1be5c352ab1ed63c855e6f5c16d3a5c';
-        
+
     const success = (position) => {
         const obj = {
         lat: position.coords.latitude,

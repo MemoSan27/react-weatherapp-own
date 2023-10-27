@@ -10,15 +10,17 @@
   
 }
 html {
-  font-size: 45.5%;  /*  1REM = 10x */
-  
-  
+  font-size: 37.5%;  /*  1REM = 10x */
+  background-image: url('../01b.jpg');
+  background-repeat: no-repeat;
+}
+@media ( min-width: 768px ) { 
+  html{
+    background-size: cover;
+  }
 }
 body{
   font-size: 2rem;
-  background-image: url('../01b.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
 }
 span{
   color: #E6AE01;

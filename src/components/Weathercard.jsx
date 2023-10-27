@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Datetime from "./Datetime";
 
 const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
 
@@ -6,6 +7,16 @@ const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
     const icon2 = city?.weather?.[0].icon.charAt(1);
     const iconDef = `${icon}${icon2}.gif`;
     const [isCelsius, setIsCelsius] = useState(true);
+
+    const mostrarHora = () => {
+       const momentoActual = new Date();   
+       const hora = momentoActual.getHours();
+       const minuto = momentoActual.getMinutes();
+       const segundos = momentoActual.getSeconds(); 
+
+       const horaImprimible = `${hora}:${minuto}:${segundos}`;
+       return horaImprimible;
+    }
 
     const handleChangeTemp = () =>{
         setIsCelsius(!isCelsius);
@@ -17,6 +28,7 @@ const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
         <>
             <article>
                 <div className="card__info">
+                    
                     <h2 className="card__name"> Current weather in <span> { city?.name }, {city?.sys?.country} </span>  </h2>
                     <img className="card__gif" src={iconDef} alt="Img Sun" />
                     <h2 className="card__name conditions"> { city?.weather?.[0].description.replace(/\w/, firstLetter => firstLetter.toUpperCase()) } </h2>
@@ -35,7 +47,9 @@ const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
                     <span className="span__term"> Feels Like: </span> 
                     <span className="span__term-num"> {isCelsius ? `${ feels?.celsius4 }°C` : `${ feels?.farenheit4  }°F`}  </span>
                 </h2>
+                <Datetime />
             </article>
+            
 
         </>
         
