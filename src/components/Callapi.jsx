@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import Weathercard from './Weathercard';
+import Loading from './Loading';
 
 const CallApi = () => {
 
@@ -109,7 +110,7 @@ const CallApi = () => {
             
             {
                 isLoading
-                ? <h2 className='loading'> Loading....</h2>
+                ? (<Loading />)
                 : (
                     hasError
                     ? (<h2 className='error'> ⚠️ La ciudad de <span className='error__city'> {inputValue} </span>  no existe en nuestra base de datos</h2>)
