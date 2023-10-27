@@ -6,17 +6,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--fuentePrincipal);
   
 }
 html {
   font-size: 62.5%;  /*  1REM = 10x */
-  color: var(--colorPrincipal);
-  font-family: var(--fuentePrincipal);
+  
+  
 }
 body{
   font-size: 2rem;
-  background-color: #F3F3F3;
+  background-image: url('../01b.jpg');
+  background-repeat: no-repeat;
 }
 span{
-  color: yellow;
+  color: #E6AE01;
 }

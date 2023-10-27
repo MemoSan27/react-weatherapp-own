@@ -70,10 +70,10 @@ const CallApi = () => {
                     const farenheit = (celsius * 9/5 + 32).toFixed(1);
                     setTemp({ celsius, farenheit });
                     const celsius2 = (res.data.main.temp_min - 273.15).toFixed(1);
-                    const farenheit2 = (celsius * 9/5 + 32).toFixed(1);
+                    const farenheit2 = (celsius2 * 9/5 + 32).toFixed(1);
                     setTempMin({ celsius2, farenheit2 });
                     const celsius3 = (res.data.main.temp_max - 273.15).toFixed(1);
-                    const farenheit3 = (celsius * 9/5 + 32).toFixed(1);
+                    const farenheit3 = (celsius3 * 9/5 + 32).toFixed(1);
                     setTempMax({ celsius3, farenheit3 });
                     const celsius4 = (res.data.main.feels_like - 273.15).toFixed(1);
                     const farenheit4 = (celsius4 * 9/5 + 32).toFixed(1);
@@ -100,7 +100,7 @@ const CallApi = () => {
     }
 
   return (
-    <main>
+    <main className='bg'>
         <div className='card'>
             <form className='form' onSubmit={handleSubmit}>
                 <input ref={inputCity} className='card__input' type='text' placeholder='Name of your city...' />
