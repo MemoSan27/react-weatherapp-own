@@ -1,9 +1,15 @@
+import { useState } from "react";
 
-const Weathercard = ( { city } ) => {
+const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
 
     const icon = city?.weather?.[0].icon.charAt(0);
     const icon2 = city?.weather?.[0].icon.charAt(1);
     const iconDef = `${icon}${icon2}.gif`;
+    const [isCelsius, setIsCelsius] = useState(true);
+
+    const handleChangeTemp = () =>{
+        setIsCelsius(!isCelsius);
+    }
     
     console.log(city);
 
@@ -15,17 +21,17 @@ const Weathercard = ( { city } ) => {
                     <img className="card__gif" src={iconDef} alt="Img Sun" />
                     <h2 className="card__temp"> 
                         <span className="card__grados-desc"> Temperatura actual: </span> 
-                        <span className="card__grados"> { Math.round(city?.main?.temp - 273.15) }°C </span>
+                        <span className="card__grados"> {isCelsius ? `${ temp?.celsius }°C` : `${ temp?.farenheit  }°F`} </span>
                     </h2>
                 </div>
                 <div className="card__maxmin"> 
-                    <h2 className="card__min"> <span className="span__maxmin"> Min: </span> { Math.round(city?.main?.temp_min - 273.15) } °C </h2>
-                    <h2 className="card__max"> <span className="span__maxmin"> Max: </span> { Math.round(city?.main?.temp_max - 273.15) } °C </h2>
+                    <h2 className="card__min"> <span className="span__maxmin"> Min: </span> {isCelsius ? `${ tempMin?.celsius2 }°C` : `${ tempMin?.farenheit2  }°F`} </h2>
+                    <h2 className="card__max"> <span className="span__maxmin"> Max: </span> {isCelsius ? `${ tempMax?.celsius3 }°C` : `${ tempMax?.farenheit3  }°F`} </h2>
                     <h2 className="card__hum"> <span className="span__maxmin"> Hum: </span> { city?.main?.humidity } %</h2>
                 </div>
                 <h2 className="card__sens"> 
                     <span className="span__term"> Sensacion termica: </span> 
-                    <span className="span__term-num"> { Math.round(city?.main?.feels_like - 273.15) }°C </span>
+                    <span className="span__term-num"> {isCelsius ? `${ feels?.celsius4 }°C` : `${ feels?.farenheit4  }°F`}  </span>
                 </h2>
             </article>
 
