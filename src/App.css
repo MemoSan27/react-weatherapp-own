@@ -63,13 +63,8 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: white;
-}
-@media ( min-width: 768px ) { 
-  .card__maxmin{
-    font-size: 2rem;
-  }
 }
 @media ( min-width: 768px ) { 
   .card__maxmin{
