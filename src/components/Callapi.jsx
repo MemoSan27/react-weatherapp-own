@@ -23,11 +23,26 @@ const CallApi = () => {
       }
       setCoords(obj);
     }
-    
+
     useEffect( () => {
       setsIsLoading(true)
       navigator.geolocation.getCurrentPosition(success)
     }, []);
+
+    const celFar = (res) => {
+        const celsius = (res.data.main.temp - 273.15).toFixed(1);
+        const farenheit = (celsius * 9/5 + 32).toFixed(1);
+        setTemp({ celsius, farenheit });
+        const celsius2 = (res.data.main.temp_min - 273.15).toFixed(1);
+        const farenheit2 = (celsius2 * 9/5 + 32).toFixed(1);
+        setTempMin({ celsius2, farenheit2 });
+        const celsius3 = (res.data.main.temp_max - 273.15).toFixed(1);
+        const farenheit3 = (celsius * 9/5 + 32).toFixed(1);
+        setTempMax({ celsius3, farenheit3 });
+        const celsius4 = (res.data.main.feels_like - 273.15).toFixed(1);
+        const farenheit4 = (celsius4 * 9/5 + 32).toFixed(1);
+        setFeels({ celsius4, farenheit4 });
+    }
   
     
     useEffect( () => {
@@ -35,18 +50,7 @@ const CallApi = () => {
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${ coords.lat }&lon=${ coords.lon }&appid=${ id }`
         axios.get(url)
           .then( res => {
-            const celsius = (res.data.main.temp - 273.15).toFixed(1);
-            const farenheit = (celsius * 9/5 + 32).toFixed(1);
-            setTemp({ celsius, farenheit });
-            const celsius2 = (res.data.main.temp_min - 273.15).toFixed(1);
-            const farenheit2 = (celsius2 * 9/5 + 32).toFixed(1);
-            setTempMin({ celsius2, farenheit2 });
-            const celsius3 = (res.data.main.temp_max - 273.15).toFixed(1);
-            const farenheit3 = (celsius * 9/5 + 32).toFixed(1);
-            setTempMax({ celsius3, farenheit3 });
-            const celsius4 = (res.data.main.feels_like - 273.15).toFixed(1);
-            const farenheit4 = (celsius4 * 9/5 + 32).toFixed(1);
-            setFeels({ celsius4, farenheit4 });
+            celFar(res);
             setCity(res.data)
             setHasError(false)
           })
@@ -67,18 +71,7 @@ const CallApi = () => {
             setsIsLoading(true)
             axios.get(url)
                 .then( res => {
-                    const celsius = (res.data.main.temp - 273.15).toFixed(1);
-                    const farenheit = (celsius * 9/5 + 32).toFixed(1);
-                    setTemp({ celsius, farenheit });
-                    const celsius2 = (res.data.main.temp_min - 273.15).toFixed(1);
-                    const farenheit2 = (celsius2 * 9/5 + 32).toFixed(1);
-                    setTempMin({ celsius2, farenheit2 });
-                    const celsius3 = (res.data.main.temp_max - 273.15).toFixed(1);
-                    const farenheit3 = (celsius3 * 9/5 + 32).toFixed(1);
-                    setTempMax({ celsius3, farenheit3 });
-                    const celsius4 = (res.data.main.feels_like - 273.15).toFixed(1);
-                    const farenheit4 = (celsius4 * 9/5 + 32).toFixed(1);
-                    setFeels({ celsius4, farenheit4 });
+                    celFar(res);
                     setCity(res.data)
                     setHasError(false)
                 })
