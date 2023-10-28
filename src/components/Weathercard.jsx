@@ -3,9 +3,6 @@ import Datetime from "./Datetime";
 
 const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
 
-    const icon = city?.weather?.[0].icon.charAt(0);
-    const icon2 = city?.weather?.[0].icon.charAt(1);
-    const iconDef = `${icon}${icon2}.gif`;
     const [isCelsius, setIsCelsius] = useState(true);
 
     const mostrarHora = () => {
@@ -30,7 +27,7 @@ const Weathercard = ( { city, temp, tempMin, tempMax, feels } ) => {
                 <div className="card__info">
                     
                     <h2 className="card__name"> Current weather in <span> { city?.name }, {city?.sys?.country} </span>  </h2>
-                    <img className="card__gif" src={iconDef} alt="Img Sun" />
+                    <img className="card__gif" src={city?.weather?.[0].icon + ".gif"} alt="Img Sun" />
                     <h2 className="card__name conditions"> { city?.weather?.[0].description.replace(/\w/, firstLetter => firstLetter.toUpperCase()) } </h2>
                     <button className="card__btn" onClick={handleChangeTemp}> <span className="textbtn">Change</span> <span className="textbtn2">{ isCelsius ? '°F' : '°C' } </span>   </button>
                     <h2 className="card__temp"> 
